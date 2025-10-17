@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Header</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-top-bar">
+        <div class="top-bar-content">
+          <a href="mailto:info@webducha.org" class="email-link">
+            <span class="icon-mail">✉</span> info@webducha.org
+          </a>
+          <a href="#" class="account-link">
+            Moje konto <span class="icon-cart">🛒</span>
+          </a>
+        </div>
+      </div>
+
+      <nav class="header-main-nav">
+        <div class="nav-content">
+          <div class="logo-area">
+            <img width="115px" src="./black-1.svg" />
+          </div>
+          <ul class="nav-menu">
+            <li><a href="#" class="active">Strona główna</a></li>
+            <li><a href="#">Produkty</a></li>
+            <li><a href="#">Promocje</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div class="carousel-container">
+      <button class="carousel-prev" onclick="plusSlides(-1)">&#10094;</button>
+
+      <div class="carousel-items">
+        <div class="carousel-slide fade active-slide" data-slide-index="1">
+          <div class="slide-content-wrapper">
+            <div class="slide-text-box">
+              <h2 class="slide-title">WGA Crystal Ultra</h2>
+              <p class="slide-subtitle">NOWOŚĆ</p>
+              <p class="slide-price">109,99 zł</p>
+              <a href="#" class="slide-button">Do 35 000 zaciągnięć</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-slide fade" data-slide-index="2">
+          <div class="slide-content-wrapper">
+            <div class="slide-text-box">
+              <h2 class="slide-title">Another Great Product</h2>
+              <p class="slide-subtitle">PROMOCJA</p>
+              <p class="slide-price">79,99 zł</p>
+              <a href="#" class="slide-button">Sprawdź ofertę!</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-slide fade" data-slide-index="3">
+          <div class="slide-content-wrapper">
+            <div class="slide-text-box">
+              <h2 class="slide-title">Limited Edition</h2>
+              <p class="slide-subtitle">NOWOŚĆ</p>
+              <p class="slide-price">129,99 zł</p>
+              <a href="#" class="slide-button">Kup teraz!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-next" onclick="plusSlides(1)">&#10095;</button>
+    </div>
+  </body>
+  <script type="text/javascript" src="script.js"></script>
+</html>

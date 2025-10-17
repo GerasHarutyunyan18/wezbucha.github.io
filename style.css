@@ -1,0 +1,265 @@
+/* Reset/Base Styles for a clean start */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Use a preferred font */
+  color: #333; /* Dark text color */
+}
+
+/* --- Global Link Styling --- */
+a {
+  text-decoration: none;
+  color: inherit; /* Inherit color from parent */
+}
+
+ul {
+  list-style: none; /* Remove bullet points */
+}
+
+/* --- Top Bar Styling (Email and Cart) --- */
+
+.header-top-bar {
+  background-color: #fff; /* White background */
+  padding: 10px 0;
+  font-size: 0.9rem;
+}
+
+.top-bar-content {
+  /* Set max width to align with main nav */
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  /* Flexbox to push items to the sides */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.email-link {
+  display: flex;
+  align-items: center;
+  color: #666;
+}
+
+.icon-mail,
+.icon-cart {
+  margin-right: 5px;
+  font-size: 1.1rem;
+}
+
+.account-link {
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-weight: 500;
+}
+
+/* --- Main Navigation Styling (Logo and Menu) --- */
+
+.header-main-nav {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+
+.nav-content {
+  /* Set max width to align with top bar */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  /* Flexbox to arrange logo and menu */
+  display: flex;
+  justify-content: space-between; /* Pushes logo and menu apart */
+  align-items: center;
+}
+
+/* Placeholder styles for your logo area */
+.logo-area {
+  /* Ensure the logo area is aligned vertically */
+  display: flex;
+  align-items: center;
+}
+
+.logo-placeholder {
+  /* These styles will be replaced by your actual logo */
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 1;
+  text-align: center;
+}
+.logo-text {
+  font-size: 10px;
+  margin-top: 5px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex; /* Arrange menu items horizontally */
+  gap: 30px; /* Space between links */
+}
+
+.nav-menu li a {
+  color: #333;
+  font-size: 1rem;
+  padding: 5px 0;
+  transition: color 0.2s;
+}
+
+.nav-menu li a:hover {
+  color: #21a1f1; /* Example hover color */
+}
+
+/* Active Link Styling (Strona główna) */
+.nav-menu li a.active {
+  color: #4caf50; /* Green active color based on your image */
+  font-weight: bold;
+}
+
+/* --- Carousel Container --- */
+.carousel-container {
+  max-width: 100%;
+  position: relative;
+  margin: auto;
+
+  overflow: hidden; /* Important to hide content that goes outside */
+}
+
+.carousel-items {
+  display: flex;
+  justify-content: center;
+}
+
+/* --- Individual Slides --- */
+.carousel-slide {
+  display: none; /* Hidden by default */
+  width: 60%;
+  height: 600px; /* Adjust height as needed */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative; /* Needed for absolute positioning of text overlay */
+}
+
+/* Set your actual background images here */
+.carousel-slide[data-slide-index="1"] {
+  /* Use your uploaded image as the background here */
+  background-image: url("./aroma-king-7000.jpg");
+}
+.carousel-slide[data-slide-index="2"] {
+  background-image: url("./e-papierosy3.jpg");
+}
+.carousel-slide[data-slide-index="3"] {
+  background-image: url("./aroma-king-7000.jpg");
+}
+
+/* Make the active slide visible */
+.carousel-slide.active-slide {
+  display: block;
+}
+
+/* --- Content Wrapper & Text Box (The overlay) --- */
+.slide-content-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Use Flexbox to center the content box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide-text-box {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+  padding: 40px 60px;
+  text-align: center;
+  color: white;
+  border-radius: 8px;
+  max-width: 600px; /* Limit the width of the content box */
+}
+
+.slide-title {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.slide-subtitle {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+.slide-price {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.slide-button {
+  display: inline-block;
+  background-color: #2196f3; /* A bright blue color */
+  color: white;
+  padding: 12px 25px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.slide-button:hover {
+  background-color: #0b7dda;
+}
+
+/* --- Navigation Arrows --- */
+.carousel-prev,
+.carousel-next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  z-index: 10;
+}
+
+.carousel-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* --- Fade animation (optional but nice) --- */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
