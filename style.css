@@ -48,7 +48,8 @@ ul {
 
 .icon-mail,
 .icon-cart {
-  margin-right: 5px;
+  margin-right: 10px;
+  margin-left: 15px;
   font-size: 1.1rem;
 }
 
@@ -56,7 +57,7 @@ ul {
   display: flex;
   align-items: center;
   color: #333;
-  font-weight: 500;
+  font-weight: bold;
 }
 
 /* --- Main Navigation Styling (Logo and Menu) --- */
@@ -122,13 +123,71 @@ ul {
   font-weight: bold;
 }
 
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #666;
+}
+
+/* Hamburger button hidden on desktop */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  color: #7cc68d;
+  border: none;
+  cursor: pointer;
+}
+
 /* --- Carousel Container --- */
 .carousel-container {
-  max-width: 100%;
+  /* ... (rest of your styles) */
   position: relative;
-  margin: auto;
+  overflow: hidden; /* Crucial to hide the arrows when they are outside */
+}
 
-  overflow: hidden; /* Important to hide content that goes outside */
+/* --- Navigation Arrows --- */
+.carousel-prev,
+.carousel-next {
+  /* ... (rest of your existing styles) */
+
+  /* Make the transition smooth */
+  transition: all 0.3s;
+  opacity: 0; /* Initially hidden */
+  z-index: 10;
+}
+
+/* Position the Previous Arrow OUTSIDE to the left */
+.carousel-prev {
+  left: 0;
+  /* Move the arrow left by 100% of its own width */
+  transform: translateX(-100%);
+}
+
+/* Position the Next Arrow OUTSIDE to the right */
+.carousel-next {
+  right: 0;
+  /* Move the arrow right by 100% of its own width */
+  transform: translateX(100%);
+}
+
+/* When the mouse hovers over the container: */
+
+.carousel-container:hover .carousel-prev {
+  /* Move it back to its original position (0) */
+  transform: translateX(100%);
+  opacity: 1; /* Make it visible */
+}
+
+.carousel-container:hover .carousel-next {
+  /* Move it back to its original position (0) */
+  transform: translateX(-100%);
+  opacity: 1; /* Make it visible */
 }
 
 .carousel-items {
@@ -228,13 +287,13 @@ ul {
   width: auto;
   padding: 16px;
   margin-top: -22px;
-  color: white;
+  color: black;
+  background: transparent;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 40px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
-  background-color: rgba(0, 0, 0, 0.3);
   border: none;
   z-index: 10;
 }
@@ -246,7 +305,7 @@ ul {
 
 .carousel-prev:hover,
 .carousel-next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0.8;
 }
 
 /* --- Fade animation (optional but nice) --- */
@@ -261,5 +320,225 @@ ul {
   }
   to {
     opacity: 1;
+  }
+}
+
+/* --- Fixed Promotional Banner Styling --- */
+.fixed-promo-banner {
+  /* KEY STYLES for fixed positioning */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1000; /* Ensures it stays on top of other content */
+
+  /* Appearance styles */
+  width: 100%;
+  background-color: #ff0000; /* Solid Red color */
+  color: white;
+  padding: 15px 0;
+  text-align: center;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow above */
+
+  /* Initially visible */
+  transition: transform 0.3s ease-out;
+}
+
+.banner-content {
+  /* Use a max-width to align content if necessary, or just center it */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center;
+  gap: 20px; /* Space between text and button */
+}
+
+.promo-text {
+  font-size: 1rem;
+  font-weight: 500;
+  /* Optional: Make the "300 zł" part bolder */
+}
+
+.dismiss-button {
+  background: none;
+  border: 1px solid white;
+  color: white;
+  padding: 5px 15px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+.dismiss-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Optional: Class to hide the banner after dismissal */
+.fixed-promo-banner.hidden {
+  transform: translateY(100%); /* Slide out below the screen */
+}
+
+/* --- New Products Section --- */
+.new-products-section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* --- Product Grid Layout (The Core) --- */
+.product-grid {
+  display: grid;
+  /* Create three columns, each taking an equal amount of available space */
+  grid-template-columns: repeat(4, 1fr);
+  /* Gap between rows and columns */
+  gap: 45px;
+}
+
+/* --- Product Card Styling --- */
+.product-card {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  height: fit-content;
+  /* The product card in your image has a subtle shadow on hover, so we keep the base simple */
+}
+
+.product-link {
+  display: block; /* Make the entire card clickable */
+  text-decoration: none;
+  color: inherit;
+  padding: 5px; /* Internal padding */
+  border: 1px solid transparent; /* Prepare for hover effect */
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  border-color: #eee;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Soft shadow on hover */
+}
+
+.product-image-container {
+  width: 100%;
+  /* Use padding-bottom trick for aspect ratio if images are not uniform */
+  /* padding-bottom: 100%; 
+    position: relative; */
+  height: auto; /* Let image define height for now */
+  margin-bottom: 15px;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-details {
+  text-align: left;
+  min-height: 80px; /* Ensure consistent card height regardless of text wrapping */
+}
+
+.product-name {
+  font-size: 0.95rem;
+  line-height: 1.3;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  /* Limit name to two lines for better grid consistency */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.product-ratings {
+  color: #7cc68d; /* Color for the stars */
+  font-size: 1rem;
+  height: 15px;
+  display: flex;
+}
+
+/* --- Responsiveness (Optional but recommended) --- */
+@media (max-width: 992px) {
+  .product-grid {
+    /* Change to 2 columns on medium screens */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .product-grid {
+    /* Change to 1 column on small screens */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column; /* Stack links vertically */
+    display: none; /* Hidden by default */
+    gap: 15px;
+    background: #fff;
+    position: absolute;
+    z-index: 5;
+    top: 126px; /* adjust according to your header height */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-menu li {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  }
+
+  .nav-menu li {
+    padding: 10px !important;
+  }
+
+  .nav-menu li a {
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .nav-menu.show {
+    border-top: 1px solid #7cc68d;
+    display: flex; /* Show menu when toggled */
+  }
+
+  .carousel-slide {
+    width: 100% !important;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
